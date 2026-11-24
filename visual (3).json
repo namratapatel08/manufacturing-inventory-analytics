@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "2eb72f0b20c94adfabaa",
+  "position": {
+    "x": 0,
+    "y": 50,
+    "z": 0,
+    "width": 200,
+    "height": 110,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "OEE"
+                }
+              },
+              "queryRef": "_Measures.OEE",
+              "nativeQueryRef": "OEE"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Overall OEE'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "title": {
+      "visible": true,
+      "text": "Overall OEE"
+    }
+  }
+}

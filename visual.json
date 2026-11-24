@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "16de7999200942869e47",
+  "position": {
+    "x": 0,
+    "y": 450,
+    "z": 0,
+    "width": 620,
+    "height": 260,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_inventory"
+                    }
+                  },
+                  "Property": "abc_class"
+                }
+              },
+              "queryRef": "fact_inventory.abc_class",
+              "nativeQueryRef": "abc_class"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Inventory Revenue"
+                }
+              },
+              "queryRef": "_Measures.Total Inventory Revenue",
+              "nativeQueryRef": "Total Inventory Revenue"
+            }
+          ]
+        }
+      }
+    },
+    "title": {
+      "visible": true,
+      "text": "Inventory Revenue by ABC Class"
+    }
+  }
+}

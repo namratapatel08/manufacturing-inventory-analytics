@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "4ef3472528da4ef6b8c3",
+  "position": {
+    "x": 420,
+    "y": 50,
+    "z": 0,
+    "width": 200,
+    "height": 110,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Avg Stock Turnover"
+                }
+              },
+              "queryRef": "_Measures.Avg Stock Turnover",
+              "nativeQueryRef": "Avg Stock Turnover"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Avg Stock Turnover'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "title": {
+      "visible": true,
+      "text": "Avg Stock Turnover"
+    }
+  }
+}

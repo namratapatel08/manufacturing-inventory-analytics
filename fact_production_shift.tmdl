@@ -1,0 +1,104 @@
+table fact_production_shift
+	lineageTag: 05655c0f-a531-4a73-9adf-16fc5188143e
+
+	column date_key
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bc6f0cd9-1ba3-4420-9f72-14d3eb223c82
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column machine_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 776a6cd5-a16d-4758-af86-eca234f0c0b0
+		summarizeBy: none
+		sourceColumn: machine_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column shift_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 186de65a-246e-4ccc-983c-c95dbd06be6d
+		summarizeBy: none
+		sourceColumn: shift_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_units
+		dataType: int64
+		formatString: 0
+		lineageTag: 24992da9-62aa-4dbb-9857-d85840ff5379
+		summarizeBy: sum
+		sourceColumn: total_units
+
+		annotation SummarizationSetBy = Automatic
+
+	column defective_units
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a05af58-cdf7-4930-9a9e-37e6cf514da9
+		summarizeBy: sum
+		sourceColumn: defective_units
+
+		annotation SummarizationSetBy = Automatic
+
+	column downtime_min
+		dataType: int64
+		formatString: 0
+		lineageTag: 76a830f7-04ea-47f7-916f-032ac595cc78
+		summarizeBy: sum
+		sourceColumn: downtime_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_ideal_cycle_time_sec
+		dataType: double
+		formatString: 0.00
+		lineageTag: dacb1b42-a561-4136-b9bd-241c8198cf4e
+		summarizeBy: none
+		sourceColumn: avg_ideal_cycle_time_sec
+
+		annotation SummarizationSetBy = Automatic
+
+	column run_time_min
+		dataType: double
+		formatString: 0.00
+		lineageTag: 90ef73c5-176a-400a-8f7d-48d259cc48a4
+		summarizeBy: none
+		sourceColumn: run_time_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column planned_min
+		dataType: double
+		formatString: 0.00
+		lineageTag: f69724f9-5962-41b4-a5bc-9cc4ca1b76bb
+		summarizeBy: none
+		sourceColumn: planned_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column good_units
+		dataType: int64
+		formatString: 0
+		lineageTag: a727595a-67e2-4d09-a3a8-c6edec69dc8e
+		summarizeBy: sum
+		sourceColumn: good_units
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_production_shift = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ProcessedDataFolder & "fact_production_shift.csv"),[Delimiter=",", Columns=10, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"date_key", type date}, {"machine_id", Int64.Type}, {"shift_id", Int64.Type}, {"total_units", Int64.Type}, {"defective_units", Int64.Type}, {"downtime_min", Int64.Type}, {"avg_ideal_cycle_time_sec", type number}, {"run_time_min", type number}, {"planned_min", type number}, {"good_units", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table

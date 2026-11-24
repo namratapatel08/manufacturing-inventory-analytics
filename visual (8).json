@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "abf93ada2c9546468a61",
+  "position": {
+    "x": 630,
+    "y": 50,
+    "z": 0,
+    "width": 200,
+    "height": 110,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "% SKUs Below Reorder"
+                }
+              },
+              "queryRef": "_Measures.% SKUs Below Reorder",
+              "nativeQueryRef": "% SKUs Below Reorder"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'% SKUs Below Reorder'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "title": {
+      "visible": true,
+      "text": "% SKUs Below Reorder"
+    }
+  }
+}

@@ -1,0 +1,5 @@
+expression ProcessedDataFolder = "C:\ManufacturingInventoryAnalytics\data\processed\" meta [IsParameterQuery=true, List={}, DefaultValue="C:\ManufacturingInventoryAnalytics\data\processed\", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 9a2c4e10-0000-4000-8000-000000000001
+	annotation PBI_ResultType = Text
+	annotation PBI_NavigationStepName = Navigation
+

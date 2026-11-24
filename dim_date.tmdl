@@ -1,0 +1,92 @@
+table dim_date
+	lineageTag: ff0cd944-5864-4220-b5eb-ec2eb29f1497
+
+	column date_key
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5235ca70-6606-44a2-a2c1-36277f8d25aa
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c8e4e46-d972-4864-88de-bff656d5f6da
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e50e3c9-9169-4a09-941c-7e11a8f754b5
+		summarizeBy: none
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: 4da5db43-9ec5-49ea-beca-f0b5c1396c38
+		summarizeBy: none
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: 29002191-af62-47ca-b8d9-06642d2d96a6
+		summarizeBy: none
+		sourceColumn: month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column day
+		dataType: int64
+		formatString: 0
+		lineageTag: e79ae4a5-8594-435f-bd8d-c0fd2ee92630
+		summarizeBy: none
+		sourceColumn: day
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_name
+		dataType: string
+		lineageTag: 94eb0058-420b-45ef-9f89-4b6e5e5d559e
+		summarizeBy: none
+		sourceColumn: day_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column week_of_year
+		dataType: int64
+		formatString: 0
+		lineageTag: 1c124048-0932-4c14-999b-d8bc648d6e37
+		summarizeBy: none
+		sourceColumn: week_of_year
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: boolean
+		lineageTag: 42309b0c-f225-4515-9e03-639c3996235e
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_date = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ProcessedDataFolder & "dim_date.csv"),[Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"date_key", type date}, {"year", Int64.Type}, {"quarter", Int64.Type}, {"month", Int64.Type}, {"month_name", type text}, {"day", Int64.Type}, {"day_name", type text}, {"week_of_year", Int64.Type}, {"is_weekend", type logical}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table

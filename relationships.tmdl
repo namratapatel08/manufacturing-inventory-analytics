@@ -1,0 +1,56 @@
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000001
+	fromColumn: fact_production_unit.date_key
+	toColumn: dim_date.date_key
+
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000002
+	fromColumn: fact_production_unit.machine_id
+	toColumn: dim_machine.machine_id
+
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000003
+	fromColumn: fact_production_unit.shift_id
+	toColumn: dim_shift.shift_id
+
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000004
+	fromColumn: fact_production_unit.product_type_code
+	toColumn: dim_product_type.product_type_code
+
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000005
+	fromColumn: fact_production_unit.failure_mode_code
+	toColumn: dim_failure_mode.failure_mode_code
+
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000006
+	fromColumn: fact_production_shift.date_key
+	toColumn: dim_date.date_key
+
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000007
+	fromColumn: fact_production_shift.machine_id
+	toColumn: dim_machine.machine_id
+
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000008
+	fromColumn: fact_production_shift.shift_id
+	toColumn: dim_shift.shift_id
+
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000009
+	fromColumn: fact_inventory.sku_id
+	toColumn: dim_sku.sku_id
+
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000010
+	fromColumn: fact_inventory.dc_id
+	toColumn: dim_dc.dc_id
+
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000011
+	fromColumn: dim_sku.category_id
+	toColumn: dim_category.category_id
+
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000012
+	fromColumn: dim_sku.supplier_id
+	toColumn: dim_supplier.supplier_id
+
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000013
+	fromColumn: fact_inventory.date_received
+	toColumn: dim_date.date_key
+
+relationship 6f4a1b10-0001-4a1a-9c1a-000000000014
+	isActive: false
+	fromColumn: fact_inventory.last_order_date
+	toColumn: dim_date.date_key

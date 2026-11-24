@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "1bcf18ef38dc44c692fd",
+  "position": {
+    "x": 0,
+    "y": 180,
+    "z": 0,
+    "width": 620,
+    "height": 260,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_machine"
+                    }
+                  },
+                  "Property": "machine_name"
+                }
+              },
+              "queryRef": "dim_machine.machine_name",
+              "nativeQueryRef": "machine_name"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "OEE"
+                }
+              },
+              "queryRef": "_Measures.OEE",
+              "nativeQueryRef": "OEE"
+            }
+          ]
+        }
+      }
+    },
+    "title": {
+      "visible": true,
+      "text": "OEE by Machine"
+    }
+  }
+}

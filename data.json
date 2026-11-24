@@ -1,0 +1,490 @@
+{
+  "headline": {
+    "availability": 0.7921,
+    "performance": 0.8285,
+    "quality": 0.9659,
+    "oee": 0.6496,
+    "total_units": 10000,
+    "total_defects": 339
+  },
+  "oee_by_machine": [
+    {
+      "machine_name": "MCH-01",
+      "production_line": "Line A",
+      "oee": 0.6062,
+      "availability": 0.7419,
+      "performance": 0.8273,
+      "quality": 0.9572,
+      "units": 1743,
+      "defects": 72
+    },
+    {
+      "machine_name": "MCH-02",
+      "production_line": "Line A",
+      "oee": 0.672,
+      "availability": 0.8138,
+      "performance": 0.8331,
+      "quality": 0.9658,
+      "units": 1687,
+      "defects": 57
+    },
+    {
+      "machine_name": "MCH-03",
+      "production_line": "Line B",
+      "oee": 0.6515,
+      "availability": 0.7971,
+      "performance": 0.8251,
+      "quality": 0.9679,
+      "units": 1602,
+      "defects": 52
+    },
+    {
+      "machine_name": "MCH-04",
+      "production_line": "Line B",
+      "oee": 0.6769,
+      "availability": 0.8275,
+      "performance": 0.8269,
+      "quality": 0.9733,
+      "units": 1600,
+      "defects": 45
+    },
+    {
+      "machine_name": "MCH-05",
+      "production_line": "Line C",
+      "oee": 0.6494,
+      "availability": 0.7918,
+      "performance": 0.8299,
+      "quality": 0.9663,
+      "units": 1621,
+      "defects": 56
+    },
+    {
+      "machine_name": "MCH-06",
+      "production_line": "Line C",
+      "oee": 0.6418,
+      "availability": 0.7805,
+      "performance": 0.8287,
+      "quality": 0.9649,
+      "units": 1747,
+      "defects": 57
+    }
+  ],
+  "oee_by_week": [
+    {
+      "year": 2026,
+      "week_of_year": 2,
+      "oee": 0.6496
+    },
+    {
+      "year": 2026,
+      "week_of_year": 3,
+      "oee": 0.6272
+    },
+    {
+      "year": 2026,
+      "week_of_year": 4,
+      "oee": 0.6334
+    },
+    {
+      "year": 2026,
+      "week_of_year": 5,
+      "oee": 0.6378
+    },
+    {
+      "year": 2026,
+      "week_of_year": 6,
+      "oee": 0.7228
+    },
+    {
+      "year": 2026,
+      "week_of_year": 7,
+      "oee": 0.6634
+    },
+    {
+      "year": 2026,
+      "week_of_year": 8,
+      "oee": 0.6455
+    },
+    {
+      "year": 2026,
+      "week_of_year": 9,
+      "oee": 0.6769
+    },
+    {
+      "year": 2026,
+      "week_of_year": 10,
+      "oee": 0.6353
+    },
+    {
+      "year": 2026,
+      "week_of_year": 11,
+      "oee": 0.7069
+    },
+    {
+      "year": 2026,
+      "week_of_year": 12,
+      "oee": 0.5994
+    },
+    {
+      "year": 2026,
+      "week_of_year": 13,
+      "oee": 0.5973
+    }
+  ],
+  "defect_by_machine_shift": [
+    {
+      "machine_name": "MCH-01",
+      "shift_name": "Day",
+      "units": 868,
+      "defects": 41,
+      "defect_rate_pct": 4.72
+    },
+    {
+      "machine_name": "MCH-02",
+      "shift_name": "Night",
+      "units": 841,
+      "defects": 31,
+      "defect_rate_pct": 3.69
+    },
+    {
+      "machine_name": "MCH-03",
+      "shift_name": "Night",
+      "units": 778,
+      "defects": 28,
+      "defect_rate_pct": 3.6
+    },
+    {
+      "machine_name": "MCH-05",
+      "shift_name": "Night",
+      "units": 842,
+      "defects": 30,
+      "defect_rate_pct": 3.56
+    },
+    {
+      "machine_name": "MCH-04",
+      "shift_name": "Night",
+      "units": 787,
+      "defects": 28,
+      "defect_rate_pct": 3.56
+    },
+    {
+      "machine_name": "MCH-01",
+      "shift_name": "Night",
+      "units": 875,
+      "defects": 31,
+      "defect_rate_pct": 3.54
+    },
+    {
+      "machine_name": "MCH-06",
+      "shift_name": "Night",
+      "units": 871,
+      "defects": 30,
+      "defect_rate_pct": 3.44
+    },
+    {
+      "machine_name": "MCH-05",
+      "shift_name": "Day",
+      "units": 779,
+      "defects": 26,
+      "defect_rate_pct": 3.34
+    },
+    {
+      "machine_name": "MCH-06",
+      "shift_name": "Day",
+      "units": 876,
+      "defects": 27,
+      "defect_rate_pct": 3.08
+    },
+    {
+      "machine_name": "MCH-02",
+      "shift_name": "Day",
+      "units": 846,
+      "defects": 26,
+      "defect_rate_pct": 3.07
+    },
+    {
+      "machine_name": "MCH-03",
+      "shift_name": "Day",
+      "units": 824,
+      "defects": 24,
+      "defect_rate_pct": 2.91
+    },
+    {
+      "machine_name": "MCH-04",
+      "shift_name": "Day",
+      "units": 813,
+      "defects": 17,
+      "defect_rate_pct": 2.09
+    }
+  ],
+  "downtime_pareto": [
+    {
+      "failure_mode_name": "Heat Dissipation Failure",
+      "occurrences": 115,
+      "total_downtime_min": 1485,
+      "pct_of_total": 34.96
+    },
+    {
+      "failure_mode_name": "Power Failure",
+      "occurrences": 91,
+      "total_downtime_min": 1475,
+      "pct_of_total": 34.72
+    },
+    {
+      "failure_mode_name": "Overstrain Failure",
+      "occurrences": 78,
+      "total_downtime_min": 780,
+      "pct_of_total": 18.36
+    },
+    {
+      "failure_mode_name": "Tool Wear Failure",
+      "occurrences": 46,
+      "total_downtime_min": 418,
+      "pct_of_total": 9.84
+    },
+    {
+      "failure_mode_name": "Random Failure",
+      "occurrences": 9,
+      "total_downtime_min": 90,
+      "pct_of_total": 2.12
+    }
+  ],
+  "inventory_by_category": [
+    {
+      "category": "Fruits & Vegetables",
+      "avg_turnover": 1.36,
+      "avg_days_of_inventory": 395.7,
+      "total_units": 18489,
+      "total_revenue": 89478.69
+    },
+    {
+      "category": "Beverages",
+      "avg_turnover": 1.37,
+      "avg_days_of_inventory": 389.8,
+      "total_units": 3822,
+      "total_revenue": 71517.55
+    },
+    {
+      "category": "Seafood",
+      "avg_turnover": 1.26,
+      "avg_days_of_inventory": 407.4,
+      "total_units": 5601,
+      "total_revenue": 61539.1
+    },
+    {
+      "category": "Dairy",
+      "avg_turnover": 1.32,
+      "avg_days_of_inventory": 407.4,
+      "total_units": 10534,
+      "total_revenue": 48344.95
+    },
+    {
+      "category": "Grains & Pulses",
+      "avg_turnover": 1.3,
+      "avg_days_of_inventory": 402.9,
+      "total_units": 8240,
+      "total_revenue": 33797.05
+    },
+    {
+      "category": "Oils & Fats",
+      "avg_turnover": 1.31,
+      "avg_days_of_inventory": 406.6,
+      "total_units": 4123,
+      "total_revenue": 18841.9
+    },
+    {
+      "category": "Bakery",
+      "avg_turnover": 1.48,
+      "avg_days_of_inventory": 372.9,
+      "total_units": 4175,
+      "total_revenue": 18354.3
+    },
+    {
+      "category": "Uncategorized",
+      "avg_turnover": 0.8,
+      "avg_days_of_inventory": 456.2,
+      "total_units": 69,
+      "total_revenue": 2395.8
+    }
+  ],
+  "inventory_by_dc": [
+    {
+      "dc_name": "DC-Central",
+      "region": "Central",
+      "avg_turnover": 1.21,
+      "avg_days_of_inventory": 411.4,
+      "skus_below_reorder": 105,
+      "total_skus": 203
+    },
+    {
+      "dc_name": "DC-East",
+      "region": "East",
+      "avg_turnover": 1.31,
+      "avg_days_of_inventory": 389.3,
+      "skus_below_reorder": 85,
+      "total_skus": 185
+    },
+    {
+      "dc_name": "DC-North",
+      "region": "North",
+      "avg_turnover": 1.36,
+      "avg_days_of_inventory": 406.9,
+      "skus_below_reorder": 84,
+      "total_skus": 186
+    },
+    {
+      "dc_name": "DC-South",
+      "region": "South",
+      "avg_turnover": 1.4,
+      "avg_days_of_inventory": 402.1,
+      "skus_below_reorder": 96,
+      "total_skus": 203
+    },
+    {
+      "dc_name": "DC-West",
+      "region": "West",
+      "avg_turnover": 1.42,
+      "avg_days_of_inventory": 385.1,
+      "skus_below_reorder": 95,
+      "total_skus": 213
+    }
+  ],
+  "abc_summary": [
+    {
+      "abc_class": "A",
+      "sku_count": 349,
+      "revenue": 240740.26,
+      "pct_of_revenue": 69.93
+    },
+    {
+      "abc_class": "B",
+      "sku_count": 296,
+      "revenue": 69034.91,
+      "pct_of_revenue": 20.05
+    },
+    {
+      "abc_class": "C",
+      "sku_count": 345,
+      "revenue": 34494.17,
+      "pct_of_revenue": 10.02
+    }
+  ],
+  "reorder_risk_top": [
+    {
+      "sku_id": "70-149-6756",
+      "product_name": "Heavy Cream",
+      "category": "Dairy",
+      "dc_name": "DC-East",
+      "stock_quantity": 14,
+      "reorder_level": 99,
+      "status": "Discontinued"
+    },
+    {
+      "sku_id": "21-013-3508",
+      "product_name": "Cabbage",
+      "category": "Fruits & Vegetables",
+      "dc_name": "DC-Central",
+      "stock_quantity": 12,
+      "reorder_level": 95,
+      "status": "Backordered"
+    },
+    {
+      "sku_id": "67-512-9754",
+      "product_name": "Egg (Turkey)",
+      "category": "Dairy",
+      "dc_name": "DC-Central",
+      "stock_quantity": 19,
+      "reorder_level": 100,
+      "status": "Discontinued"
+    },
+    {
+      "sku_id": "79-884-8810",
+      "product_name": "Cucumber",
+      "category": "Fruits & Vegetables",
+      "dc_name": "DC-West",
+      "stock_quantity": 12,
+      "reorder_level": 93,
+      "status": "Backordered"
+    },
+    {
+      "sku_id": "57-167-0669",
+      "product_name": "Haddock",
+      "category": "Seafood",
+      "dc_name": "DC-South",
+      "stock_quantity": 19,
+      "reorder_level": 99,
+      "status": "Discontinued"
+    },
+    {
+      "sku_id": "59-857-6577",
+      "product_name": "Evaporated Milk",
+      "category": "Dairy",
+      "dc_name": "DC-West",
+      "stock_quantity": 23,
+      "reorder_level": 100,
+      "status": "Discontinued"
+    },
+    {
+      "sku_id": "00-357-2313",
+      "product_name": "Avocado Oil",
+      "category": "Oils & Fats",
+      "dc_name": "DC-North",
+      "stock_quantity": 10,
+      "reorder_level": 86,
+      "status": "Backordered"
+    },
+    {
+      "sku_id": "39-913-2999",
+      "product_name": "Evaporated Milk",
+      "category": "Dairy",
+      "dc_name": "DC-South",
+      "stock_quantity": 23,
+      "reorder_level": 99,
+      "status": "Discontinued"
+    },
+    {
+      "sku_id": "88-807-8431",
+      "product_name": "Haddock",
+      "category": "Seafood",
+      "dc_name": "DC-West",
+      "stock_quantity": 11,
+      "reorder_level": 87,
+      "status": "Active"
+    },
+    {
+      "sku_id": "83-727-0814",
+      "product_name": "Basmati Rice",
+      "category": "Grains & Pulses",
+      "dc_name": "DC-North",
+      "stock_quantity": 11,
+      "reorder_level": 87,
+      "status": "Active"
+    },
+    {
+      "sku_id": "62-509-0666",
+      "product_name": "Almond Flour",
+      "category": "Grains & Pulses",
+      "dc_name": "DC-Central",
+      "stock_quantity": 13,
+      "reorder_level": 88,
+      "status": "Backordered"
+    },
+    {
+      "sku_id": "19-854-3663",
+      "product_name": "Watermelon",
+      "category": "Fruits & Vegetables",
+      "dc_name": "DC-West",
+      "stock_quantity": 13,
+      "reorder_level": 88,
+      "status": "Backordered"
+    }
+  ],
+  "inventory_headline": {
+    "total_stock": 55053,
+    "total_skus": 990,
+    "avg_days_of_inventory": 398.8,
+    "revenue_at_risk": 145653.49,
+    "total_revenue": 344269.34,
+    "skus_below_reorder": 465
+  }
+}

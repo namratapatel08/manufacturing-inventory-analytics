@@ -1,0 +1,7 @@
+failure_mode_code,failure_mode_name,avg_downtime_min
+NONE,No failure,0
+TWF,Tool Wear Failure,8
+HDF,Heat Dissipation Failure,12
+PWF,Power Failure,15
+OSF,Overstrain Failure,10
+RNF,Random Failure,5

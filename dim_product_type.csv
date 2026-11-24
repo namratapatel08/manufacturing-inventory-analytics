@@ -1,0 +1,4 @@
+product_type_code,product_type_name,ideal_cycle_time_sec
+L,Economy,18
+M,Standard,25
+H,Premium,35

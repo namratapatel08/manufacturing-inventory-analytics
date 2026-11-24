@@ -1,0 +1,113 @@
+ avg_availability | avg_performance | avg_quality | avg_oee | total_units_produced | total_defective_units 
+------------------+-----------------+-------------+---------+----------------------+-----------------------
+           0.7921 |          0.8285 |      0.9659 |  0.6496 |                10000 |                   339
+(1 row)
+
+ machine_name | production_line |  oee   | availability | performance | quality | units 
+--------------+-----------------+--------+--------------+-------------+---------+-------
+ MCH-04       | Line B          | 0.6769 |       0.8275 |      0.8269 |  0.9733 |  1600
+ MCH-02       | Line A          | 0.6720 |       0.8138 |      0.8331 |  0.9658 |  1687
+ MCH-03       | Line B          | 0.6515 |       0.7971 |      0.8251 |  0.9679 |  1602
+ MCH-05       | Line C          | 0.6494 |       0.7918 |      0.8299 |  0.9663 |  1621
+ MCH-06       | Line C          | 0.6418 |       0.7805 |      0.8287 |  0.9649 |  1747
+ MCH-01       | Line A          | 0.6062 |       0.7419 |      0.8273 |  0.9572 |  1743
+(6 rows)
+
+ year | week_of_year |  oee   
+------+--------------+--------
+ 2026 |            2 | 0.6496
+ 2026 |            3 | 0.6272
+ 2026 |            4 | 0.6334
+ 2026 |            5 | 0.6378
+ 2026 |            6 | 0.7228
+ 2026 |            7 | 0.6634
+ 2026 |            8 | 0.6455
+ 2026 |            9 | 0.6769
+ 2026 |           10 | 0.6353
+ 2026 |           11 | 0.7069
+ 2026 |           12 | 0.5994
+ 2026 |           13 | 0.5973
+(12 rows)
+
+ machine_name | shift_name | units | defects | defect_rate_pct 
+--------------+------------+-------+---------+-----------------
+ MCH-01       | Day        |   868 |      41 |            4.72
+ MCH-02       | Night      |   841 |      31 |            3.69
+ MCH-03       | Night      |   778 |      28 |            3.60
+ MCH-05       | Night      |   842 |      30 |            3.56
+ MCH-04       | Night      |   787 |      28 |            3.56
+ MCH-01       | Night      |   875 |      31 |            3.54
+ MCH-06       | Night      |   871 |      30 |            3.44
+ MCH-05       | Day        |   779 |      26 |            3.34
+ MCH-06       | Day        |   876 |      27 |            3.08
+ MCH-02       | Day        |   846 |      26 |            3.07
+ MCH-03       | Day        |   824 |      24 |            2.91
+ MCH-04       | Day        |   813 |      17 |            2.09
+(12 rows)
+
+    failure_mode_name     | occurrences | total_downtime_min | pct_of_total_downtime 
+--------------------------+-------------+--------------------+-----------------------
+ Heat Dissipation Failure |         115 |               1485 |                 34.96
+ Power Failure            |          91 |               1475 |                 34.72
+ Overstrain Failure       |          78 |                780 |                 18.36
+ Tool Wear Failure        |          46 |                418 |                  9.84
+ Random Failure           |           9 |                 90 |                  2.12
+(5 rows)
+
+      category       | avg_turnover_rate | avg_days_of_inventory | total_units_on_hand | total_revenue 
+---------------------+-------------------+-----------------------+---------------------+---------------
+ Fruits & Vegetables |              1.36 |                 395.7 |               18489 |      89478.69
+ Beverages           |              1.37 |                 389.8 |                3822 |      71517.55
+ Seafood             |              1.26 |                 407.4 |                5601 |      61539.10
+ Dairy               |              1.32 |                 407.4 |               10534 |      48344.95
+ Grains & Pulses     |              1.30 |                 402.9 |                8240 |      33797.05
+ Oils & Fats         |              1.31 |                 406.6 |                4123 |      18841.90
+ Bakery              |              1.48 |                 372.9 |                4175 |      18354.30
+ Uncategorized       |              0.80 |                 456.2 |                  69 |       2395.80
+(8 rows)
+
+   sku_id    |  product_name   |      category       |  dc_name   | stock_quantity | reorder_level | reorder_quantity |    status    
+-------------+-----------------+---------------------+------------+----------------+---------------+------------------+--------------
+ 70-149-6756 | Heavy Cream     | Dairy               | DC-East    |             14 |            99 |               97 | Discontinued
+ 21-013-3508 | Cabbage         | Fruits & Vegetables | DC-Central |             12 |            95 |               49 | Backordered
+ 67-512-9754 | Egg (Turkey)    | Dairy               | DC-Central |             19 |           100 |               83 | Discontinued
+ 79-884-8810 | Cucumber        | Fruits & Vegetables | DC-West    |             12 |            93 |               29 | Backordered
+ 57-167-0669 | Haddock         | Seafood             | DC-South   |             19 |            99 |               78 | Discontinued
+ 59-857-6577 | Evaporated Milk | Dairy               | DC-West    |             23 |           100 |               77 | Discontinued
+ 00-357-2313 | Avocado Oil     | Oils & Fats         | DC-North   |             10 |            86 |               23 | Backordered
+ 88-807-8431 | Haddock         | Seafood             | DC-West    |             11 |            87 |               43 | Active
+ 83-727-0814 | Basmati Rice    | Grains & Pulses     | DC-North   |             11 |            87 |               64 | Active
+ 39-913-2999 | Evaporated Milk | Dairy               | DC-South   |             23 |            99 |               97 | Discontinued
+ 19-854-3663 | Watermelon      | Fruits & Vegetables | DC-West    |             13 |            88 |               11 | Backordered
+ 62-509-0666 | Almond Flour    | Grains & Pulses     | DC-Central |             13 |            88 |                7 | Backordered
+ 28-824-9017 | Trout           | Seafood             | DC-Central |             19 |            94 |               17 | Discontinued
+ 73-561-2867 | Sourdough Bread | Bakery              | DC-South   |             12 |            86 |               98 | Discontinued
+ 87-391-9658 | Corn Oil        | Oils & Fats         | DC-West    |             26 |           100 |               13 | Discontinued
+ 26-134-9069 | Whipped Cream   | Dairy               | DC-North   |             14 |            87 |                8 | Active
+ 47-548-6500 | Onion           | Fruits & Vegetables | DC-North   |             20 |            93 |               37 | Discontinued
+ 93-014-4256 | Green Beans     | Fruits & Vegetables | DC-East    |             19 |            92 |               41 | Active
+ 24-143-4957 | Canola Oil      | Oils & Fats         | DC-Central |             25 |            97 |               63 | Discontinued
+ 30-591-7275 | Brown Rice      | Grains & Pulses     | DC-East    |             17 |            88 |               41 | Backordered
+(20 rows)
+
+  dc_name   | region  | avg_turnover_rate | avg_days_of_inventory | skus_below_reorder | total_skus 
+------------+---------+-------------------+-----------------------+--------------------+------------
+ DC-West    | West    |              1.42 |                 385.1 |                 95 |        213
+ DC-South   | South   |              1.40 |                 402.1 |                 96 |        203
+ DC-North   | North   |              1.36 |                 406.9 |                 84 |        186
+ DC-East    | East    |              1.31 |                 389.3 |                 85 |        185
+ DC-Central | Central |              1.21 |                 411.4 |                105 |        203
+(5 rows)
+
+ abc_class | sku_count |  revenue  | pct_of_revenue 
+-----------+-----------+-----------+----------------
+ A         |       349 | 240740.26 |          69.93
+ B         |       296 |  69034.91 |          20.05
+ C         |       345 |  34494.17 |          10.02
+(3 rows)
+
+ correlation | vendor_stddev | recomputed_stddev 
+-------------+---------------+-------------------
+       0.000 |         28.80 |              1.02
+(1 row)
+

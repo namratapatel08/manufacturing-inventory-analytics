@@ -1,0 +1,59 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.5.0/schema.json",
+  "name": "4c3b5d96fdac4f5e8d6f",
+  "position": {
+    "x": 630,
+    "y": 450,
+    "z": 0,
+    "width": 650,
+    "height": 260,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_category"
+                    }
+                  },
+                  "Property": "category"
+                }
+              },
+              "queryRef": "dim_category.category",
+              "nativeQueryRef": "category"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Inventory Revenue"
+                }
+              },
+              "queryRef": "_Measures.Total Inventory Revenue",
+              "nativeQueryRef": "Total Inventory Revenue"
+            }
+          ]
+        }
+      }
+    },
+    "title": {
+      "visible": true,
+      "text": "Revenue by Category"
+    }
+  }
+}

@@ -1,0 +1,187 @@
+table fact_inventory
+	lineageTag: d533fbf5-11d5-4317-85b2-418f3b6e36a6
+
+	column inventory_key
+		dataType: int64
+		formatString: 0
+		lineageTag: 23172acd-f6f2-432c-b519-9c947ab2b63b
+		summarizeBy: none
+		sourceColumn: inventory_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column sku_id
+		dataType: string
+		lineageTag: f99e6f0b-52f5-4297-bc85-edac30bc0149
+		summarizeBy: none
+		sourceColumn: sku_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column dc_id
+		dataType: string
+		lineageTag: 3144a443-f298-4bde-85a0-1bf026642295
+		summarizeBy: none
+		sourceColumn: dc_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 2258b28d-c1b3-470b-a723-d2c21ff8b29b
+		summarizeBy: none
+		sourceColumn: supplier_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column supplier_lot_id
+		dataType: string
+		lineageTag: 398aec3b-48e9-4da5-9f92-8c4754772c4a
+		summarizeBy: none
+		sourceColumn: supplier_lot_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 694ca082-2b7b-4623-98ce-20c886195713
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_received
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4f0e2326-84d6-434d-8773-c177d62a8aa9
+		summarizeBy: none
+		sourceColumn: date_received
+
+		annotation SummarizationSetBy = Automatic
+
+	column last_order_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: eb13d8e3-3426-4569-8898-0e540930580e
+		summarizeBy: none
+		sourceColumn: last_order_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column expiration_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 1eebca47-9494-430a-abe9-58fd99ea1170
+		summarizeBy: none
+		sourceColumn: expiration_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column stock_quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 43b9ef89-0091-4568-8c29-8fca89a4a378
+		summarizeBy: sum
+		sourceColumn: stock_quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column reorder_level
+		dataType: int64
+		formatString: 0
+		lineageTag: 73a6e0af-f3a1-4a10-84ed-6aeb7fcfb1eb
+		summarizeBy: none
+		sourceColumn: reorder_level
+
+		annotation SummarizationSetBy = Automatic
+
+	column reorder_quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 424e5804-fb4a-4846-af05-97c84678d9d0
+		summarizeBy: sum
+		sourceColumn: reorder_quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column sales_volume
+		dataType: int64
+		formatString: 0
+		lineageTag: 31f9fd37-7cc1-4f37-ad81-c4f6a80082a5
+		summarizeBy: sum
+		sourceColumn: sales_volume
+
+		annotation SummarizationSetBy = Automatic
+
+	column vendor_reported_turnover
+		dataType: int64
+		formatString: 0
+		lineageTag: feef78d7-ddeb-43cf-bc4a-1aaf294920b7
+		summarizeBy: none
+		sourceColumn: vendor_reported_turnover
+
+		annotation SummarizationSetBy = Automatic
+
+	column recomputed_turnover_rate
+		dataType: double
+		formatString: 0.00
+		lineageTag: df8a9384-4126-4ca5-8632-2c38d064c560
+		summarizeBy: none
+		sourceColumn: recomputed_turnover_rate
+
+		annotation SummarizationSetBy = Automatic
+
+	column days_of_inventory
+		dataType: double
+		formatString: 0.00
+		lineageTag: 1e3868f4-ffc6-4aa9-b946-71a4b7470149
+		summarizeBy: none
+		sourceColumn: days_of_inventory
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_below_reorder_point
+		dataType: boolean
+		lineageTag: 955a8475-998f-4e7d-a303-59aa48e39b56
+		summarizeBy: none
+		sourceColumn: is_below_reorder_point
+
+		annotation SummarizationSetBy = Automatic
+
+	column revenue_est
+		dataType: double
+		formatString: 0.00
+		lineageTag: b772cc68-c0f5-4fb9-821f-49946daeafcd
+		summarizeBy: sum
+		sourceColumn: revenue_est
+
+		annotation SummarizationSetBy = Automatic
+
+	column abc_class
+		dataType: string
+		lineageTag: c39423fc-0cef-4e16-8521-d12e2cb5dab5
+		summarizeBy: none
+		sourceColumn: abc_class
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_address
+		dataType: string
+		lineageTag: 044a1d31-3a00-47da-baa9-849209568a85
+		summarizeBy: none
+		sourceColumn: source_address
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_inventory = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ProcessedDataFolder & "fact_inventory.csv"),[Delimiter=",", Columns=20, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"inventory_key", Int64.Type}, {"sku_id", type text}, {"dc_id", type text}, {"supplier_id", Int64.Type}, {"supplier_lot_id", type text}, {"status", type text}, {"date_received", type date}, {"last_order_date", type date}, {"expiration_date", type date}, {"stock_quantity", Int64.Type}, {"reorder_level", Int64.Type}, {"reorder_quantity", Int64.Type}, {"sales_volume", Int64.Type}, {"vendor_reported_turnover", Int64.Type}, {"recomputed_turnover_rate", type number}, {"days_of_inventory", type number}, {"is_below_reorder_point", type logical}, {"revenue_est", type number}, {"abc_class", type text}, {"source_address", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table

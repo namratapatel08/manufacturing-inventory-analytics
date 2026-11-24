@@ -1,0 +1,38 @@
+table dim_dc
+	lineageTag: 3981ec93-8e3b-4a5a-9154-24a98902c900
+
+	column dc_id
+		dataType: string
+		lineageTag: 3ae4cf0d-1d2b-4774-a111-967d5b31f56b
+		summarizeBy: none
+		sourceColumn: dc_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column dc_name
+		dataType: string
+		lineageTag: 23129ba2-9d99-4e5a-8452-4514b9557d62
+		summarizeBy: none
+		sourceColumn: dc_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column region
+		dataType: string
+		lineageTag: 384e1b97-388d-48b2-be91-a48d17d863ed
+		summarizeBy: none
+		sourceColumn: region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_dc = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ProcessedDataFolder & "dim_dc.csv"),[Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"dc_id", type text}, {"dc_name", type text}, {"region", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table

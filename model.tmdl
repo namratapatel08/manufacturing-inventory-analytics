@@ -1,0 +1,31 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+	annotation PBI_QueryOrder = ["ProcessedDataFolder","dim_date","dim_machine","dim_shift","dim_product_type","dim_failure_mode","fact_production_unit","fact_production_shift","dim_supplier","dim_dc","dim_category","dim_sku","fact_inventory","_Measures"]
+
+	annotation __PBI_TimeIntelligenceEnabled = 1
+
+	annotation PBIDesktopVersion = 2.135.*
+
+	ref table dim_date
+	ref table dim_machine
+	ref table dim_shift
+	ref table dim_product_type
+	ref table dim_failure_mode
+	ref table fact_production_unit
+	ref table fact_production_shift
+	ref table dim_supplier
+	ref table dim_dc
+	ref table dim_category
+	ref table dim_sku
+	ref table fact_inventory
+	ref table _Measures
+
+	ref expression ProcessedDataFolder
+
+	ref culture en-US

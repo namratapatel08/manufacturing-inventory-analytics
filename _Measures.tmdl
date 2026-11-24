@@ -1,0 +1,153 @@
+table _Measures
+	lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a11
+
+	measure 'Total Units Produced' = SUM(fact_production_shift[total_units])
+		formatString: #,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a01
+		displayFolder: Manufacturing\OEE
+
+	measure 'Total Good Units' = SUM(fact_production_shift[good_units])
+		formatString: #,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a02
+		displayFolder: Manufacturing\OEE
+
+	measure 'Total Defective Units' = SUM(fact_production_shift[defective_units])
+		formatString: #,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a03
+		displayFolder: Manufacturing\Quality
+
+	measure 'Defect Rate' = DIVIDE([Total Defective Units], [Total Units Produced])
+		formatString: 0.00%
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a04
+		displayFolder: Manufacturing\Quality
+
+	measure 'Total Planned Time (min)' = SUM(fact_production_shift[planned_min])
+		formatString: #,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a05
+		displayFolder: Manufacturing\OEE
+
+	measure 'Total Run Time (min)' = SUM(fact_production_shift[run_time_min])
+		formatString: #,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a06
+		displayFolder: Manufacturing\OEE
+
+	measure 'Total Downtime (min)' = SUM(fact_production_shift[downtime_min])
+		formatString: #,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a07
+		displayFolder: Manufacturing\OEE
+
+	measure Availability = DIVIDE([Total Run Time (min)], [Total Planned Time (min)])
+		formatString: 0.0%
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a08
+		displayFolder: Manufacturing\OEE
+
+	measure 'Ideal Run Time (sec)' = SUMX(fact_production_shift, fact_production_shift[avg_ideal_cycle_time_sec] * fact_production_shift[total_units])
+		formatString: #,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a09
+		displayFolder: Manufacturing\OEE
+
+	measure Performance = DIVIDE([Ideal Run Time (sec)], [Total Run Time (min)] * 60)
+		formatString: 0.0%
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a10
+		displayFolder: Manufacturing\OEE
+
+	measure 'Performance (capped)' = MIN(1, [Performance])
+		formatString: 0.0%
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a12
+		displayFolder: Manufacturing\OEE
+
+	measure Quality = DIVIDE([Total Good Units], [Total Units Produced])
+		formatString: 0.0%
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a13
+		displayFolder: Manufacturing\OEE
+
+	measure OEE = [Availability] * [Performance (capped)] * [Quality]
+		formatString: 0.0%
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a14
+		displayFolder: Manufacturing\OEE
+
+	measure 'OEE Target' = 0.85
+		formatString: 0.0%
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a15
+		displayFolder: Manufacturing\OEE
+		annotation description = World-class OEE benchmark (Nakajima), used as a reference line on OEE visuals.
+
+	measure 'OEE vs Target' = [OEE] - [OEE Target]
+		formatString: 0.0%;-0.0%
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a16
+		displayFolder: Manufacturing\OEE
+
+	measure 'Downtime Events' = CALCULATE(COUNTROWS(fact_production_unit), fact_production_unit[is_defective] = 1)
+		formatString: #,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a17
+		displayFolder: Manufacturing\Downtime
+
+	measure '% of Total Downtime' = DIVIDE(SUM(fact_production_unit[downtime_min]), CALCULATE(SUM(fact_production_unit[downtime_min]), ALL(dim_failure_mode)))
+		formatString: 0.0%
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a18
+		displayFolder: Manufacturing\Downtime
+
+	measure 'Total Stock On Hand' = SUM(fact_inventory[stock_quantity])
+		formatString: #,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a19
+		displayFolder: Inventory\Stock
+
+	measure 'Total Sales Volume' = SUM(fact_inventory[sales_volume])
+		formatString: #,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a20
+		displayFolder: Inventory\Stock
+
+	measure 'Total Inventory Revenue' = SUM(fact_inventory[revenue_est])
+		formatString: "$"#,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a21
+		displayFolder: Inventory\Value
+
+	measure 'Avg Stock Turnover' = AVERAGE(fact_inventory[recomputed_turnover_rate])
+		formatString: 0.00
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a22
+		displayFolder: Inventory\Turnover
+		annotation description = Recomputed turnover (Sales Volume / Avg Inventory) -- NOT the source vendor_reported_turnover field, which validated as noise (see docs/data_dictionary.md).
+
+	measure 'Avg Days of Inventory' = AVERAGE(fact_inventory[days_of_inventory])
+		formatString: #,0.0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a23
+		displayFolder: Inventory\Turnover
+
+	measure 'Total SKUs' = DISTINCTCOUNT(fact_inventory[sku_id])
+		formatString: #,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a24
+		displayFolder: Inventory\Stock
+
+	measure 'SKUs Below Reorder Point' = CALCULATE(COUNTROWS(fact_inventory), fact_inventory[is_below_reorder_point] = TRUE)
+		formatString: #,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a25
+		displayFolder: Inventory\Reorder Risk
+
+	measure '% SKUs Below Reorder' = DIVIDE([SKUs Below Reorder Point], [Total SKUs])
+		formatString: 0.0%
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a26
+		displayFolder: Inventory\Reorder Risk
+
+	measure 'Revenue at Risk (Below Reorder)' = CALCULATE([Total Inventory Revenue], fact_inventory[is_below_reorder_point] = TRUE)
+		formatString: "$"#,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a27
+		displayFolder: Inventory\Reorder Risk
+
+	measure '% Revenue - Class A' = DIVIDE(CALCULATE([Total Inventory Revenue], fact_inventory[abc_class] = "A"), [Total Inventory Revenue])
+		formatString: 0.0%
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a28
+		displayFolder: Inventory\ABC
+
+	measure 'Discontinued SKUs' = CALCULATE(COUNTROWS(fact_inventory), fact_inventory[status] = "Discontinued")
+		formatString: #,0
+		lineageTag: a1e6d9c2-4b1a-4e3f-9d2a-7c1f6e8b0a29
+		displayFolder: Inventory\Stock
+
+	partition _Measures = calculated
+		mode: import
+		source = ```
+				{("")}
+				```
+
+	annotation PBI_Id = 000000000000000000000000_Measures
+

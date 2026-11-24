@@ -1,0 +1,146 @@
+table fact_production_unit
+	lineageTag: 04c45919-74df-4e37-85ee-fb5883943ff0
+
+	column unit_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 84499811-c167-4b83-a48c-051737f3f86e
+		summarizeBy: none
+		sourceColumn: unit_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 15fa7846-165f-4b9c-8dd2-d0c9279ead3d
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column machine_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 96596220-6e98-49bb-aae7-ff32996d85ba
+		summarizeBy: none
+		sourceColumn: machine_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column shift_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 3cb75ef6-2f30-46c4-b29f-f539a282623b
+		summarizeBy: none
+		sourceColumn: shift_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_type_code
+		dataType: string
+		lineageTag: bfd4d059-803a-45e1-a6b7-f54376cd4ca5
+		summarizeBy: none
+		sourceColumn: product_type_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_code
+		dataType: string
+		lineageTag: efe8397b-fe13-4d5f-930a-80835a04155c
+		summarizeBy: none
+		sourceColumn: product_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column air_temp_k
+		dataType: double
+		formatString: 0.00
+		lineageTag: 1953d268-96ba-4028-9ee8-b164f3957e0b
+		summarizeBy: none
+		sourceColumn: air_temp_k
+
+		annotation SummarizationSetBy = Automatic
+
+	column process_temp_k
+		dataType: double
+		formatString: 0.00
+		lineageTag: d91dda96-a5e2-42a0-8224-e800aa2cef99
+		summarizeBy: none
+		sourceColumn: process_temp_k
+
+		annotation SummarizationSetBy = Automatic
+
+	column rotational_speed_rpm
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b36b63f-3455-49cb-998b-38225a45834e
+		summarizeBy: none
+		sourceColumn: rotational_speed_rpm
+
+		annotation SummarizationSetBy = Automatic
+
+	column torque_nm
+		dataType: double
+		formatString: 0.00
+		lineageTag: 8302e0d4-394e-4c80-aed8-7289083dc1ce
+		summarizeBy: none
+		sourceColumn: torque_nm
+
+		annotation SummarizationSetBy = Automatic
+
+	column tool_wear_min
+		dataType: int64
+		formatString: 0
+		lineageTag: 63c2702e-edd8-43af-bc3c-7f620c170534
+		summarizeBy: none
+		sourceColumn: tool_wear_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_defective
+		dataType: int64
+		formatString: 0
+		lineageTag: 2cfd5c95-7e33-4779-afd5-9d0b9a768876
+		summarizeBy: none
+		sourceColumn: is_defective
+
+		annotation SummarizationSetBy = Automatic
+
+	column failure_mode_code
+		dataType: string
+		lineageTag: 325e0ff7-4667-47c2-8ab0-cff8b152515e
+		summarizeBy: none
+		sourceColumn: failure_mode_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column downtime_min
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e9f42c0-701f-4748-9b04-95597cfdab6e
+		summarizeBy: sum
+		sourceColumn: downtime_min
+
+		annotation SummarizationSetBy = Automatic
+
+	column ideal_cycle_time_sec
+		dataType: int64
+		formatString: 0
+		lineageTag: 648d670e-3d1a-4458-b111-1ec42db97761
+		summarizeBy: none
+		sourceColumn: ideal_cycle_time_sec
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_production_unit = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(ProcessedDataFolder & "fact_production_unit.csv"),[Delimiter=",", Columns=15, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"unit_id", Int64.Type}, {"date_key", type date}, {"machine_id", Int64.Type}, {"shift_id", Int64.Type}, {"product_type_code", type text}, {"product_code", type text}, {"air_temp_k", type number}, {"process_temp_k", type number}, {"rotational_speed_rpm", Int64.Type}, {"torque_nm", type number}, {"tool_wear_min", Int64.Type}, {"is_defective", Int64.Type}, {"failure_mode_code", type text}, {"downtime_min", Int64.Type}, {"ideal_cycle_time_sec", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
